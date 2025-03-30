@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/css/formulario.css" th:href="@{/css/formulario.css}" rel="stylesheet" />
+    <title>Editar Movimiento</title>
+</head>
+<body>
+<div class="container">
+    <h1>Editar Movimiento</h1>
+    <form th:action="@{/movimientos/actualizar}" th:object="${movimiento}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+
+        <label th:for="descripcion">Descripción:</label>
+        <input id="descripcion" type="text" th:field="*{descripcion}" required/>
+
+        <label th:for="monto">Cantidad:</label>
+        <input id="monto" type="number" th:field="*{monto}" required/>
+
+        <label th:for="fecha">Fecha:</label>
+        <input id="fecha" type="date" th:field="*{fecha}" required/>
+
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" th:field="*{tipo}" required>
+            <option value="INGRESO">Ingreso</option>
+            <option value="GASTO">Gasto</option>
+        </select><br><br>
+
+        <button type="submit">Actualizar</button>
+    </form>
+
+    <a href="/movimientos">Volver a la lista</a>
+</div>
+
+</body>
+</html>

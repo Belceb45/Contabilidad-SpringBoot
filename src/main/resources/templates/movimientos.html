@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Movimientos</title>
+    <link rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}">
+
+</head>
+<body>
+<div class="container">
+    <h1>Movimientos</h1>
+    <a href="/movimientos/nuevo">Agregar Nuevo Movimiento</a>
+    <table>
+        <thead>
+        <tr>
+            <th>Descripción</th>
+            <th>Cantidad</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="movimiento : ${movimientos}">
+            <td th:text="${movimiento.descripcion}"></td>
+            <td th:text="${movimiento.monto}"></td>
+            <td th:text="${movimiento.fecha}"></td>
+            <td>
+                <a th:href="@{/movimientos/editar/{id}(id=${movimiento.id})}">Editar</a>
+                <a th:href="@{/movimientos/eliminar/{id}(id=${movimiento.id})}" class="delete-btn">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
