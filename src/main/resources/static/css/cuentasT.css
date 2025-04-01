@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.cuentas-t {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.cuentas-t-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cuentas-t-table th,
+.cuentas-t-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.cuentas-t-table th {
+    background-color: #f4f4f4;
+    font-size: 1.1em;
+}
+
+.cuenta-activos {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.saldo-activos {
+    color: #4CAF50;
+}
+
+.cuenta-pasivos {
+    font-weight: bold;
+    color: #f44336;
+}
+
+.saldo-pasivos {
+    color: #f44336;
+}
+
+/* Estilo para los encabezados de cuentas T */
+th[colspan="2"] {
+    font-size: 1.2em;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+@media screen and (max-width: 768px) {
+    .cuentas-t-table {
+        font-size: 0.9em;
+    }
+}

@@ -11,19 +11,22 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/movimientos")
-public class MovimientoController {
+@RequestMapping({"/","movimientos"})
+public class MovimientoController
+{
 
     private final MovimientoService movimientoService;
 
     @Autowired
-    public MovimientoController(MovimientoService movimientoService) {
+    public MovimientoController(MovimientoService movimientoService)
+    {
         this.movimientoService = movimientoService;
     }
 
     // Mostrar todos los movimientos (Vista Thymeleaf)
     @GetMapping
-    public String mostrarMovimientos(Model model) {
+    public String mostrarMovimientos(Model model)
+    {
         List<Movimiento> movimientos = movimientoService.obtenerTodosLosMovimientos();
         model.addAttribute("movimientos", movimientos);
         return "movimientos"; // Vista que mostraremos en thymeleaf
@@ -64,5 +67,13 @@ public class MovimientoController {
         movimientoService.guardarMovimiento(movimiento);
         return "redirect:/movimientos";
     }
+
+    @GetMapping("/cuentasT")
+    public String mostrarCuentasT(Model model)
+    {
+        model.addAttribute("movimiento", new Movimiento());
+        return "cuentasT"; // Vista de cuentas T
+    }
+
 }
 

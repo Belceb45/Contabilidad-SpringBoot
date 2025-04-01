@@ -8,22 +8,38 @@
 </head>
 <body>
 <div class="container">
-    <h1>Movimientos</h1>
-    <a href="/movimientos/nuevo">Agregar Nuevo Movimiento</a>
+    <header>
+        <div class="head">
+            <h1>Libro Diario</h1>
+            <label>Fecha: </label>
+            <input type="text">
+        </div>
+        <div class="buttons-main">
+            <a href="/movimientos/nuevo" class="button1">Nueva Operacion</a>
+            <div>
+                <a href="/movimientos/cuentasT">Cuentas T</a>
+                <a>Estado Financiero</a>
+            </div>
+        </div>
+    </header>
+
     <table>
         <thead>
         <tr>
-            <th>Descripción</th>
-            <th>Cantidad</th>
-            <th>Fecha</th>
-            <th>Acciones</th>
+
+            <th>Operacion</th>
+            <th>Cuenta</th>
+            <th>Cargo</th>
+            <th>Abono</th>
+            <th>Accion</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="movimiento : ${movimientos}">
-            <td th:text="${movimiento.descripcion}"></td>
-            <td th:text="${movimiento.monto}"></td>
-            <td th:text="${movimiento.fecha}"></td>
+            <td th:text="${movimiento.id}"></td>
+            <td th:text="${movimiento.cuenta}"></td>
+            <td th:text="${movimiento.cargo}"></td>
+            <td th:text="${movimiento.abono}"></td>
             <td>
                 <a th:href="@{/movimientos/editar/{id}(id=${movimiento.id})}">Editar</a>
                 <a th:href="@{/movimientos/eliminar/{id}(id=${movimiento.id})}" class="delete-btn">Eliminar</a>

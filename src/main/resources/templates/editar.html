@@ -7,24 +7,19 @@
 </head>
 <body>
 <div class="container">
-    <h1>Editar Movimiento</h1>
+    <h1>Editar Operacion</h1>
     <form th:action="@{/movimientos/actualizar}" th:object="${movimiento}" method="post">
         <input type="hidden" th:field="*{id}"/>
 
-        <label th:for="descripcion">Descripción:</label>
-        <input id="descripcion" type="text" th:field="*{descripcion}" required/>
+        <label th:for="cuenta">Cuenta:</label>
+        <input id="cuenta" type="text" th:field="*{cuenta}" required/>
 
-        <label th:for="monto">Cantidad:</label>
-        <input id="monto" type="number" th:field="*{monto}" required/>
+        <label th:for="cargo">Cargo:</label>
+        <input id="cargo" type="number" th:field="*{cargo}" required/>
 
-        <label th:for="fecha">Fecha:</label>
-        <input id="fecha" type="date" th:field="*{fecha}" required/>
+        <label th:for="abono">Abono:</label>
+        <input id="abono" type="number" th:field="*{abono}" required/>
 
-        <label for="tipo">Tipo:</label>
-        <select id="tipo" th:field="*{tipo}" required>
-            <option value="INGRESO">Ingreso</option>
-            <option value="GASTO">Gasto</option>
-        </select><br><br>
 
         <button type="submit">Actualizar</button>
     </form>

@@ -1,8 +1,11 @@
 package com.finanzas.controlgastos.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.OverridesAttribute;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -10,40 +13,56 @@ import java.time.LocalDate;
 @Table(name = "movimientos")
 public class Movimiento {
 
+    // Getters y Setters
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
     @Size(min = 3, max = 100)
-    private String descripcion;
+    private String cuenta;
 
     @NotNull
-    private BigDecimal monto;
+    private float cargo;
 
     @NotNull
-    private LocalDate fecha;
+    private float abono;
 
-    @Enumerated(EnumType.STRING)
-    private TipoMovimiento tipo;
 
-    public enum TipoMovimiento {
-        INGRESO, GASTO
+    public void setId(Long id)
+    {
+        this.id = id;
     }
 
-    // Getters y Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public String getCuenta()
+    {
+        return cuenta;
+    }
 
-    public String getDescripcion() { return descripcion; }
-    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+    public void setCuenta(String cuenta)
+    {
+        this.cuenta = cuenta;
+    }
 
-    public BigDecimal getMonto() { return monto; }
-    public void setMonto(BigDecimal monto) { this.monto = monto; }
+    public float getCargo()
+    {
+        return cargo;
+    }
 
-    public LocalDate getFecha() { return fecha; }
-    public void setFecha(LocalDate fecha) { this.fecha = fecha; }
+    public void setCargo(float cargo)
+    {
+        this.cargo = cargo;
+    }
 
-    public TipoMovimiento getTipo() { return tipo; }
-    public void setTipo(TipoMovimiento tipo) { this.tipo = tipo; }
+    public float getAbono()
+    {
+        return abono;
+    }
+    public void setAbono(float abono)
+    {
+        this.abono = abono;
+    }
+
+
 }

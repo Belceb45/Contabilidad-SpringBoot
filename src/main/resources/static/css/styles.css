@@ -16,6 +16,22 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
+.head{
+    margin-bottom: 20px;
+    input{
+        width: 6rem;
+    }
+}
+
+.buttons-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button1{
+    background-color: darkred;
+}
 /* Títulos */
 h1 {
     text-align: center;
